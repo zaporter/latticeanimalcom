@@ -1,0 +1,26 @@
+body {
+    background-color: #274C77;
+}
+
+.App {
+    background-color: #e7ecef;
+    color: #090804;
+}
+
+a, a:hover, a:visited, a:active {
+  color: inherit;
+ }
+.heading {
+    color: #274C77;
+    text-align:center;
+    padding: 1rem;
+    font-size:2.5rem;
+}
+
+.item {
+    background-color: #4C9F70;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0.5rem;
+    font-size: 1.5rem;
+}
