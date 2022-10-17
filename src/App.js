@@ -20,13 +20,16 @@ function App() {
       <h1 className='heading'>Projects</h1>
       
       <div className='item'>
-        <a href="https://www.latticeanimal.com/center-of-the-world/"><h1> Azimuthal Equidistant Projection (in Rust!)</h1> </a>
+        <a href="https://www.latticeanimal.com/center-of-the-world/"><h1> Azimuthal Equidistant Projection (Rust + wasmbindgen)</h1> </a>
       </div>
       <div className='item'>
-        <a href="https://latticeanimal.com/distributionexplorer/"><h1> Distribution Explorer</h1></a>
+        <a href="https://balancesheet.latticeanimal.com/"><h1> Simple Trusting Group Balance Sheet (Rust + yew)</h1> </a>
       </div>
       <div className='item'>
-        <a href="https://www.latticeanimal.com/mastermind/"><h1> Mastermind Solver</h1> </a>
+        <a href="https://latticeanimal.com/distributionexplorer/"><h1> Distribution Explorer (React)</h1></a>
+      </div>
+      <div className='item'>
+        <a href="https://www.latticeanimal.com/mastermind/"><h1> Mastermind Solver (React)</h1> </a>
       </div>
       <h1 className='heading'> About this site</h1>
       <div className='item'>

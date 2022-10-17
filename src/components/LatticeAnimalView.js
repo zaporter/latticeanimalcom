@@ -15,8 +15,8 @@ const LatticeAnimalView = ({animals, index, viewX, viewY}) =>{
     }
     let comX = sumX/animal.length;
     let comY = sumY/animal.length;
-    let offX = (viewX/2)-(comX);
-    let offY = (viewY/2)-(comY);
+    let offX = (viewX/2)-(comX*2);
+    let offY = (viewY/2)-(comY*2);
 
     let shiftedAnimal = [];
     for (let i=0; i<animal.length; i++){

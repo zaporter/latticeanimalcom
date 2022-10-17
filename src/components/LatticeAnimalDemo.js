@@ -1,8 +1,10 @@
 import React from 'react';
 import LatticeAnimalView from './LatticeAnimalView.js';
+import NumberInput from 'semantic-ui-react-numberinput';
 // https://www.sciencedirect.com/science/article/pii/S0012365X81800155
 const LatticeAnimalDemo = () => {
     const [mode, setMode] = React.useState('fixed');
+    const [numberInputValue, setNumberInputValue] = React.useState('5');
 
     const genAnimals = (pmode, size) => {
         let fixed=genFixed([[0,0]],size,[],[]);
@@ -162,6 +164,14 @@ const LatticeAnimalDemo = () => {
     const incSize = () => {
         setAnimalSize(animalSize=> animalSize<7?animalSize+1:8);
     };
+    const updateAnimalSize= (newValue) => {
+        let newValueN = Number(newValue);
+        if (newValueN>1 && newValueN <7){
+            setAnimalSize(newValueN);
+        }
+        console.log(newValue);
+    }
+
     const updateIndex = () => {
         setIndex(index=>(index+1)%animals.length);
     };
@@ -178,22 +188,36 @@ const LatticeAnimalDemo = () => {
     //let animals = genAnimals(mode, animalSize);
     return (
         <div>
-        <div style={{'width':'20em','height':'20em'}}>
-            <LatticeAnimalView animals={animals} index={index} viewX={animalSize+2} viewY={animalSize+2}/>
+        <div className="fullViewer">
+        <div className="displayer">
+            <LatticeAnimalView animals={animals} index={index} viewX={animalSize+1} viewY={animalSize+1}/>
+            </div>
+            <div className="settings">
+            <p>Current size:</p>
+            <div className="incThing">
+                <button onClick={decSize}>-</button>
+                <p>{animalSize}</p>
+                <button onClick={incSize}>+</button>
+            </div>
+            <p>Set lattice animal type:</p>
+            <div className="typeSelector"> 
+            <label className="container"> Free (rotation+reflection invariant)
+                <input type="radio" checked={mode == 'free'} onChange={()=>onModeChange('free')}/>
+                <span className="checkmark"></span>
+            </label>
+            <label className="container"> One-Sided (rotation invariant)
+                <input type="radio" checked={mode == 'one-sided'} onChange={()=>onModeChange('one-sided')}/>
+                <span className="checkmark"></span>
+            </label>
+            <label className="container"> Fixed
+                <input type="radio" checked={mode == 'fixed'} onChange={()=>onModeChange('fixed')}/>
+                <span className="checkmark"></span>
+            </label>
+                </div>
+                </div>
             </div>
             <p>{index} / {animals.length}</p>
             <p>Number of lattice animals of this size: {animals.length}</p>
-            <p>Current size:</p>
-            <button onClick={decSize}>-</button>
-            <p>{animalSize}</p>
-            <button onClick={incSize}>+</button>
-            <p>Set lattice animal type:</p>
-            <input type="checkbox" checked={mode == 'free'} onChange={()=>onModeChange('free')}/>
-            <label>Free (rotation+reflection invariant)</label><br/>
-            <input type="checkbox" checked={mode == 'one-sided'} onChange={()=>onModeChange('one-sided')}/>
-            <label>One-Sided (rotation invariant)</label><br/>
-            <input type="checkbox" checked={mode == 'fixed'} onChange={()=>onModeChange('fixed')}/>
-            <label>Fixed </label><br/>
         </div>
     );
 
