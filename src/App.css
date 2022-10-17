@@ -49,8 +49,8 @@ a, a:hover, a:visited, a:active {
 }
 .fullViewer {
     display: inline-flex;
-    height: 20em;
     padding: 1em;
+    flex-wrap:wrap;
     
 }
 .displayer {
